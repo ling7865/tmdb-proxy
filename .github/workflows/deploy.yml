@@ -1,13 +1,14 @@
 name: 部署到 Cloudflare Workers
 
-on:
+于:
   push:
-    branches: [ main ]
+    分支: [ main ]
     paths:
       - 'worker.js'
       - 'wrangler.toml'
       - 'package.json'
       - '.github/workflows/deploy.yml'
+      - 'README.md'
 
 jobs:
   deploy:  # job ID 必须使用英文
