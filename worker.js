@@ -88,13 +88,6 @@ async function handleApiProxy(request, url, env, corsHeaders) {
   if (apiPath.startsWith('/proxy')) {
     apiPath = apiPath.replace('/proxy', '')
   }
-
-  // ✅ 你要的最小改动：支持 /api/3 和 /3 前缀
-  if (apiPath.startsWith('/api/3')) {
-    apiPath = apiPath.replace('/api/3', '')
-  } else if (apiPath.startsWith('/3')) {
-    apiPath = apiPath.replace('/3', '')
-  }
   
   const searchParams = new URLSearchParams(url.searchParams)
   
@@ -108,10 +101,7 @@ async function handleApiProxy(request, url, env, corsHeaders) {
     })
   }
   
-  // const apiUrl = `https://api.themoviedb.org/3${apiPath}?${searchParams}`
-  // const apiUrl = `${env.TMDB_PROXY_URL}${apiPath}?${searchParams}`
-  const apiUrl = `${env.TMDB_PROXY_URL}/3${apiPath}?${searchParams}`
-
+  const apiUrl = `https://api.themoviedb.org/3${apiPath}?${searchParams}`
 
   const response = await fetch(apiUrl, {
     method: request.method,
