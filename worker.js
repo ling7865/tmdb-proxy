@@ -8,7 +8,9 @@ async function handleRequest(request) {
   const url = new URL(request.url);
   const path = url.pathname;
   const search = url.searchParams;
-  if (path.startsWith('/api/3')) path = path.replace('/api/3','');
+  if (path.startsWith("/api/3")) {
+  path = path.replace("/api/3", "");
+}
 
   // 处理 OPTIONS 跨域预检
   if (request.method === "OPTIONS") {
