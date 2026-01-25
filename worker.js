@@ -108,7 +108,9 @@ async function handleApiProxy(request, url, env, corsHeaders) {
     })
   }
   
-  const apiUrl = `https://api.themoviedb.org/3${apiPath}?${searchParams}`
+  // const apiUrl = `https://api.themoviedb.org/3${apiPath}?${searchParams}`
+  const apiUrl = `${env.TMDB_PROXY_URL}${apiPath}?${searchParams}`
+
 
   const response = await fetch(apiUrl, {
     method: request.method,
