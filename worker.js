@@ -52,7 +52,8 @@ async function handleRequest(request) {
   }
 
   // 构造目标 URL
-  const targetUrl = `${TMDB_BASE}${apiPath}?${url.searchParams}`;
+  // const targetUrl = `${TMDB_BASE}${apiPath}?${url.searchParams}`;
+  const targetUrl = `${TMDB_BASE}${apiPath}${url.search}`;
 
   // 原样转发到官方
   const apiResponse = await fetch(targetUrl, {
