@@ -1,0 +1,14 @@
+# 克隆项目
+git clone https://github.com/your-username/tmdb-proxy-worker.git
+cd tmdb-proxy-worker
+
+# 安装依赖
+npm install -g wrangler
+
+# 配置环境变量
+export CLOUDFLARE_API_TOKEN="your-api-token"
+export CLOUDFLARE_ACCOUNT_ID="your-account-id"
+export TMDB_API_KEY="your-tmdb-api-key"
+
+# 部署
+wrangler deploy
